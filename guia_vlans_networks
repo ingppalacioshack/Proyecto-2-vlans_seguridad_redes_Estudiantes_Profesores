@@ -92,5 +92,6 @@ ip add 192.168.1.1 255.255.255.0
 no sh
 int f0/0
 no sh
+
 PC´s
 Debe ser configuradas para cada Vlans en su oficina respectiva bajo su IP de Red.
