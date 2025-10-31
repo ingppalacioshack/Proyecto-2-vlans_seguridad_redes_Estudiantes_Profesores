@@ -21,20 +21,26 @@ Contraseña sin encriptar: Opción #1 no es segura.
 
 Router> enable / en / ena
 Router# configure terminal / conf t
+
 Router(config)# enable password 123456
 Contraseña ENCRYPTADA (RECOMENDADA): Opción Plantilla .pkt #2: Es más segura y está por
 encima de enable password. Se usa para el acceso “enable” del equipo.
+
 Router(config)# enable secret 123456
 Contraseña para consola (Console): 1234567 (Se utiliza para acceder por primera vez a
 la consola o equipo).
+
 Router(config)# line console 0
 Router(config-line)# password 1234567
 Router(config-line)# login
 Router(config-line)# exit
+
 Cambiar el nombre al equipo:
 Router(config)# hostname nombredelequipo
+
 Para corregir la Ortografía: Evita que intente resolver palabras mal escritas.
 Router(config)# no ip domain-lookup
+
 Contraseña para líneas VTY (Telnet/SSH): Se utiliza para conectarse remotamente al
 equipo.
 
