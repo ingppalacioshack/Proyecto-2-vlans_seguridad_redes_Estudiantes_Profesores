@@ -3,7 +3,6 @@ CREADO POR EL ING. PABLO PALACIOS – CISCO CCNA - CCNI
 
 El esquema de la red que queremos emular, es el que se ve en la imagen siguiente. Tenemos 2 oficinas o aulas con N equipos conectados en cada una de ellas (en este caso hay 2 equipos en cada oficina). En cada oficina hay un switch, y cada switch se conecta a un switch central. Por último, el switch central se conecta al router de acceso a Internet. Cada oficina está en una VLAN. Los equipos de oficina 1 no pueden acceder al servidor de archivos, pero los equipos de la oficina 2 si pueden por temas de seguridad y restricción entre los segmentos de las Vlans. La impresora sólo se accede desde la oficina 1. Objetivo: Implementar la topología de redes y Segmentación con Vlans para ofrecer más seguridad y restricciones en la red.
 
-Image
 Hay que prestar especial atención a las VLANs en las que está cada uno de los elementos del esquema:
 
 Equipo IPs Máscara de red Gateway VLAN
