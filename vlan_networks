@@ -1,0 +1,97 @@
+PROYECTO #2 PACKET TRACERT DE CISCO
+CREADO POR EL ING. PABLO PALACIOS – CISCO CCNA - CCNI
+
+El esquema de la red que queremos emular, es el que se ve en la imagen siguiente. Tenemos 2 oficinas o aulas con N equipos conectados en cada una de ellas (en este caso hay 2 equipos en cada oficina). En cada oficina hay un switch, y cada switch se conecta a un switch central. Por último, el switch central se conecta al router de acceso a Internet. Cada oficina está en una VLAN. Los equipos de oficina 1 no pueden acceder al servidor de archivos, pero los equipos de la oficina 2 si pueden por temas de seguridad y restricción entre los segmentos de las Vlans. La impresora sólo se accede desde la oficina 1. Objetivo: Implementar la topología de redes y Segmentación con Vlans para ofrecer más seguridad y restricciones en la red.
+
+Image
+Hay que prestar especial atención a las VLANs en las que está cada uno de los elementos del esquema:
+
+Equipo IPs Máscara de red Gateway VLAN
+PC0 192.168.0.2 255.255.255.0 192.168.0.1 10
+PC1 192.168.0.3 255.255.255.0 192.168.0.1 10
+PC2 192.168.1.2 255.255.255.0 192.168.1.1 20
+PC3 192.168.1.3 255.255.255.0 192.168.1.1 20
+Switch1 — — — 10
+Switch2 — — — 20
+Switch central — — — 10 y 20
+Router0 192.168.0.1 255.255.255.0 — 10 y 20
+Router0 192.168.1.1 255.255.255.0 — 10 y 20
+
+Contraseñas:
+Contraseña sin encriptar: Opción #1 no es segura.
+
+Router> enable / en / ena
+Router# configure terminal / conf t
+Router(config)# enable password 123456
+Contraseña ENCRYPTADA (RECOMENDADA): Opción Plantilla .pkt #2: Es más segura y está por
+encima de enable password. Se usa para el acceso “enable” del equipo.
+Router(config)# enable secret 123456
+Contraseña para consola (Console): 1234567 (Se utiliza para acceder por primera vez a
+la consola o equipo).
+Router(config)# line console 0
+Router(config-line)# password 1234567
+Router(config-line)# login
+Router(config-line)# exit
+Cambiar el nombre al equipo:
+Router(config)# hostname nombredelequipo
+Para corregir la Ortografía: Evita que intente resolver palabras mal escritas.
+Router(config)# no ip domain-lookup
+Contraseña para líneas VTY (Telnet/SSH): Se utiliza para conectarse remotamente al
+equipo.
+
+Router(config)# line vty 0 4
+Router(config-line)# password 12345678
+Router(config-line)# login
+Router(config-line)# exit
+Configuraciones
+
+Switch 1
+en
+conf t
+vlan 10
+name VLAN10
+int r f0/1-24
+switchport mode access
+switchport access vlan 10
+
+Switch 2
+en
+conf t
+vlan 20
+name VLAN20
+int r f0/1-24
+switchport mode access
+switchport access vlan 20
+
+Switch central
+en
+conf t
+vlan 10
+name VLAN10
+vlan 20
+name VLAN20
+int f0/24
+switchport mode access
+switchport access vlan 10
+int f0/23
+switchport mode access
+switchport access vlan 20
+int f0/1
+switchport mode trunk
+switchport nonegotiate
+
+Router
+en
+conf t
+int f0/0.10
+encapsulation dot1Q 10
+ip add 192.168.0.1 255.255.255.0
+no sh
+int f0/0.20
+encapsulation dot1Q 20
+ip add 192.168.1.1 255.255.255.0
+no sh
+int f0/0
+no sh
+PC´s
+Debe ser configuradas para cada Vlans en su oficina respectiva bajo su IP de Red.
