@@ -1,0 +1,34 @@
+En la PC ve a "Desktop" > "Web Browser"
+En la URL escribe: ftp://IP_SERVIDOR
+Usuario Default: cisco / cisco
+Si pide autenticación, ingresa las credenciales
+
+File: sampleFile.txt
+
+ftp> dir                 # Listar archivos en el servidor
+ftp> get archivo.txt     # Descargar archivo a la PC
+ftp> put miarchivo.txt   # Subir archivo al servidor
+ftp> delete archivo.txt  # Eliminar archivo del servidor
+ftp> mkdir carpeta       # Crear directorio
+ftp> cd carpeta          # Cambiar directorio
+ftp> pwd                 # Mostrar directorio actual
+ftp> quit                # Salir de FTP
+....
+PASOS PARA TRANSFERIR ARCHIVO DESDE SERVIDOR A LA PC
+
+1. En la pc comand prompt
+2. ftp IP o dominio del servidor
+3. dir
+4. get sampleFile.txt
+5. quit
+6. dir
+....
+
+# Listar archivos disponibles en el servidor
+dir
+
+# Descargar el archivo sampleFile.txt
+get sampleFile.txt
+
+# Verificar que se descargó
+quit
