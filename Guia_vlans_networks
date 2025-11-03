@@ -117,7 +117,10 @@ Router(config)# line vty 0 4
 Router(config-line)# password 12345678
 Router(config-line)# login
 Router(config-line)# exit
-Configuraciones
+
+====================================
+CONFIGURACIONES DE EQUIPOS
+====================================
 
 Switch 1
 en
