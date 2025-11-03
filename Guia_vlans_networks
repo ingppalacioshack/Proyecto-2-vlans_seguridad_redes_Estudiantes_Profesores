@@ -9,6 +9,69 @@ La impresora sólo se accede desde la oficina 1.
 Objetivo
 Implementar la topología de redes y Segmentación con Vlans para ofrecer más seguridad y restricciones en la red.
 
+OBJETIVOS ESPECÍFICOS
+
+1. Diseñar e Implementar una Topología de Red Segmentada con VLANs
+
+-Crear un esquema de segmentación lógica mediante VLANs
+
+-Configurar switches con asignación de puertos por VLAN
+
+-Establecer una topología física y lógica escalable
+
+-Definir rangos de IP por cada segmento VLAN
+
+-Implementar enlaces troncales (trunk) para interconexión entre switches
+
+2. Configurar el Enrutamiento Inter-VLAN para Comunicación Controlada
+
+-Implementar router-on-a-stick o capa 3 switching
+
+-Configurar subinterfaces en el router para cada VLAN
+
+-Establecer políticas de enrutamiento entre segmentos
+
+-Definir control de acceso básico entre VLANs
+
+-Verificar la conectividad inter-VLAN
+
+3. Establecer Políticas de Seguridad y Control de Acceso por VLAN
+
+-Implementar listas de control de acceso (ACLs) entre VLANs
+
+-Configurar políticas de seguridad específicas por segmento
+
+-Restringir comunicaciones innecesarias entre VLANs
+
+-Aplicar principios de mínimo privilegio en la segmentación
+
+-Implementar isolation de broadcast domains
+
+4. Optimizar el Rendimiento y Gestión de la Red Segmentada
+
+-Configurar protocolos de agregación de enlaces (EtherChannel)
+
+-Implementar Spanning Tree Protocol (STP) para prevenir loops
+
+-Establecer monitoreo y gestión por VLAN
+
+-Optimizar el ancho de banda mediante priorización por VLAN
+
+-Configurar gestión centralizada de switches
+
+5. Documentar y Validar la Implementación de Seguridad
+
+-Documentar el esquema de VLANs y políticas aplicadas
+
+-Realizar pruebas de penetración entre segmentos
+
+-Validar el cumplimiento de las restricciones de seguridad
+
+-Establecer procedimientos de auditoría de la segmentación
+
+-Crear manual de operación y mantenimiento de la red segmentada
+
+
 Hay que prestar especial atención a las VLANs en las que está cada uno de los elementos del esquema:
 
 Equipo IPs Máscara de red Gateway VLAN
