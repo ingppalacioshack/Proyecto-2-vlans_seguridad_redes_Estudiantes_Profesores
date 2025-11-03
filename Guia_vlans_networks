@@ -121,8 +121,9 @@ Router(config-line)# exit
 ====================================
 CONFIGURACIONES DE EQUIPOS
 ====================================
-
+***********
 Switch 1
+***********
 en
 conf t
 vlan 10
@@ -131,7 +132,9 @@ int r f0/1-24
 switchport mode access
 switchport access vlan 10
 
+***********
 Switch 2
+***********
 en
 conf t
 vlan 20
@@ -140,7 +143,9 @@ int r f0/1-24
 switchport mode access
 switchport access vlan 20
 
+***********
 Switch central
+***********
 en
 conf t
 vlan 10
@@ -157,7 +162,9 @@ int f0/1
 switchport mode trunk
 switchport nonegotiate
 
+***********
 Router
+***********
 en
 conf t
 int f0/0.10
@@ -171,5 +178,7 @@ no sh
 int f0/0
 no sh
 
+***********
 PC´s
 Debe ser configuradas para cada Vlans en su oficina respectiva bajo su IP de Red.
+***********
